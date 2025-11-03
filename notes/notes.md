@@ -31,6 +31,25 @@ More:
 
 ## Classes
 
+### `super()`
+
+More:
+- https://docs.python.org/3/library/functions.html#super
+- https://docs.python.org/3/reference/datamodel.html#object.__init__
+
+### Special attributes (`__dict__`, `__module__`, etc.)
+
+More:
+- https://docs.python.org/3/library/stdtypes.html#special-attributes
+- https://docs.python.org/3/reference/datamodel.html#special-writable-attributes
+- https://docs.python.org/3/reference/datamodel.html#instance-methods
+- https://docs.python.org/3/reference/datamodel.html#special-attributes
+
+### Special methods aka magic methods (`__init__`, `__str__`, etc.)
+
+More:
+- https://docs.python.org/3/reference/datamodel.html#special-methods
+
 ## Functions
 
 More:
@@ -85,6 +104,34 @@ $ python namespace_package
 More:
 - https://docs.python.org/3/library/sys_path_init.html
 - https://docs.python.org/3/library/sys.html#sys.path
+
+## OOP vs functional
+
+```python
+class Pet:
+    def __init__(self, name):
+        self.name = name
+
+
+class Dog(Pet):
+    def speak(self):
+        print(f"{self.name} says whoof!")
+
+
+class Cat(Pet):
+    def speak(self):
+        print(f"{self.name} says mhoew!")
+
+
+dog = Dog("Roxana")
+dog.speak()
+Dog.speak(dog)  # Call dog.speak() is exactly equivalent to Dog.speak(dog).
+Cat.speak(dog)  # It works as well, but dog says mhoew.
+```
+
+
+More:
+- https://docs.python.org/3/tutorial/classes.html#method-objects
 
 # Interactive shell
 
@@ -185,3 +232,14 @@ More:
 - https://docs.python.org/3/tutorial/classes.html#private-variables
 - https://docs.python.org/3/reference/lexical_analysis.html#reserved-classes-of-identifiers
 - https://docs.python.org/3/reference/expressions.html#index-5
+
+
+## `__dict__` vs `dir()`
+
+`__dict__` - dictionary
+
+`dir()` - directory
+
+More:
+- https://docs.python.org/3/reference/datamodel.html#object.__dict__
+- https://docs.python.org/3/library/functions.html#dir
