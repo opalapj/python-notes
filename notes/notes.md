@@ -176,3 +176,12 @@ More:
 More:
 - https://docs.python.org/3/reference/simple_stmts.html#assignment-statements
 - https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming
+
+## Leading underscores (`_`)
+
+> `help()` only shows names without leading underscores.
+
+More:
+- https://docs.python.org/3/tutorial/classes.html#private-variables
+- https://docs.python.org/3/reference/lexical_analysis.html#reserved-classes-of-identifiers
+- https://docs.python.org/3/reference/expressions.html#index-5
