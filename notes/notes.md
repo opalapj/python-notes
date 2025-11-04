@@ -206,6 +206,13 @@ More:
 More:
 - https://docs.python.org/3/library/stdtypes.html#truth-value-testing
 
+# Reading and writing files
+
+> It is important to use encoding with text files.
+
+More:
+- https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+
 # Miscellaneous
 
 ## `dir` helper
