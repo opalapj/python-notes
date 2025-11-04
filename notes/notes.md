@@ -61,6 +61,11 @@ More:
 More:
 - https://docs.python.org/3/tutorial/controlflow.html#recap
 
+### Anonymous functions aka `lambda`
+
+More:
+- https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions
+
 ## Scopes
 
 More:
@@ -147,7 +152,50 @@ More:
 - https://docs.python.org/3/reference/executionmodel.html#exceptions
 - https://docs.python.org/3/reference/compound_stmts.html#the-try-statement
 
-# Comporehensions
+# Iterators
+
+> `__iter__()` and `__next__()` methods do not have to come form the same class:
+
+```python
+class Fib:
+    def __init__(self, nn):
+        self.__n = nn
+        self.__i = 0
+        self.__p1 = self.__p2 = 1
+
+    def __next__(self):
+        self.__i += 1
+        if self.__i > self.__n:
+            raise StopIteration
+        if self.__i in [1, 2]:
+            return 1
+        ret = self.__p1 + self.__p2
+        self.__p1, self.__p2 = self.__p2, ret
+        return ret
+
+
+class Closure:
+    def __init__(self, n):
+        self.__iter = Fib(n)
+
+    def __iter__(self):
+        return self.__iter
+
+
+if __name__ == '__main__':
+    for i in Closure(8):
+        print(i)
+```
+
+More:
+- https://docs.python.org/3/tutorial/classes.html#iterators
+
+# Generators
+
+More:
+- https://docs.python.org/3/tutorial/classes.html#generators
+
+# Comprehensions
 
 More:
 - https://docs.python.org/3/reference/expressions.html#displays-for-lists-sets-and-dictionaries
