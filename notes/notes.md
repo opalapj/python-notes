@@ -45,7 +45,7 @@ More:
 - https://docs.python.org/3/reference/datamodel.html#instance-methods
 - https://docs.python.org/3/reference/datamodel.html#special-attributes
 
-### Special methods aka magic methods (`__init__`, `__str__`, etc.)
+### Special methods a.k.a magic methods (`__init__`, `__str__`, etc.)
 
 More:
 - https://docs.python.org/3/reference/datamodel.html#special-methods
@@ -61,7 +61,7 @@ More:
 More:
 - https://docs.python.org/3/tutorial/controlflow.html#recap
 
-### Anonymous functions aka `lambda`
+### Anonymous functions a.k.a `lambda`
 
 More:
 - https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions
@@ -138,11 +138,56 @@ Cat.speak(dog)  # It works as well, but dog says mhoew.
 More:
 - https://docs.python.org/3/tutorial/classes.html#method-objects
 
+# Software packaging
+
+Packages are the idiomatic way to package software in `Python`.
+
 # Interactive shell
 
 More:
 - https://docs.python.org/3.13/tutorial/interpreter.html#using-the-python-interpreter
 - https://docs.python.org/3/using/cmdline.html#command-line-and-environment
+
+# Style guide
+
+More:
+- https://peps.python.org/pep-0008/
+
+## Google
+
+Every major open-source project has its own style guide: a set of conventions
+(sometimes arbitrary) about how to write code for that project. It is much
+easier to understand a large codebase when all the code in it is in a consistent
+style.
+
+More:
+- https://google.github.io/styleguide/pyguide.html
+
+# Typespecs
+
+# Docs
+
+Write `docstrings` for all public modules, functions, classes, and methods.
+`Docstrings` are not necessary for non-public methods, but you should have
+a comment that describes what the method does. This comment should appear after
+the `def` line.
+
+More:
+- https://peps.python.org/pep-0257/
+- https://realpython.com/how-to-write-docstrings-in-python/
+- https://google.github.io/styleguide/pyguide.html#381-docstrings
+
+# Debugging
+
+# Logging
+
+# Testing
+
+
+# Truthy and falsy values
+
+More:
+- https://docs.python.org/3/library/stdtypes.html#truth-value-testing
 
 # Exceptions
 
@@ -200,11 +245,6 @@ More:
 More:
 - https://docs.python.org/3/reference/expressions.html#displays-for-lists-sets-and-dictionaries
 - https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
-
-# Truthy and falsy values
-
-More:
-- https://docs.python.org/3/library/stdtypes.html#truth-value-testing
 
 # Reading and writing files
 
@@ -298,3 +338,9 @@ More:
 More:
 - https://docs.python.org/3/reference/datamodel.html#object.__dict__
 - https://docs.python.org/3/library/functions.html#dir
+
+# Acronyms
+
+- PEP - Python Enhancement Proposals
+
+# Dictionary
