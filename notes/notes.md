@@ -31,6 +31,44 @@ More:
 
 ## Classes
 
+### Encapsulation
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    @property
+    def x(self):
+        return self._x
+
+    @x.setter
+    def x(self, value):
+        self._x = self._validate(value)
+
+    @property
+    def y(self):
+        return self._y
+
+    @y.setter
+    def y(self, value):
+        self._y = self._validate(value)
+
+    @staticmethod
+    def _validate(value):
+        if not isinstance(value, int | float):
+            raise ValueError("number expected")
+        return value
+
+
+if __name__ == '__main__':
+    point = Point(12, 5)
+    print(point.x)
+    print(point.y)
+    point.y = "10"
+```
+
 ### `super()`
 
 More:
@@ -188,6 +226,12 @@ More:
 
 More:
 - https://docs.python.org/3/library/stdtypes.html#truth-value-testing
+
+# Data persistance
+
+More:
+- https://docs.python.org/3/library/shelve.html
+- https://docs.python.org/3/library/pickle.html
 
 # Exceptions
 
