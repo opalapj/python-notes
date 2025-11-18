@@ -318,6 +318,103 @@ More:
 
 - https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 
+# Unicode
+
+`Unicode` organizes all of the characters in its repertoire into _code charts_,
+and each character is given a unique numerical index. This numerical index is
+known as a `code point`.
+
+From character to `code point`, base decimal:
+
+```bash
+>>> ord("p")
+112
+>>> ord("π")
+960
+```
+
+From character to `code point`, base hexadecimal:
+
+```bash
+>>> hex(ord("p"))
+'0x70'
+>>> hex(ord("π"))
+'0x3c0'
+```
+
+From `code point` to character:
+
+```bash
+>>> "\u0070"
+'p'
+>>> "\u03C0"
+'π'
+```
+
+Whereas the `code point` is _what_ we store, an `encoding` deals with _how_ we
+store it: `encoding` is an implementation. In other words, we need a mechanism
+to convert the `code point` numbers into bytes so they can be stored in memory,
+written to disk, etc.
+
+`Python` uses `UTF-8` to encode its strings, which means that `code points` are
+encoded as a series of 8-bit bytes. `UTF-8` is a variable width character
+encoding that uses one to four bytes to store each `code point`. It is capable
+of encoding all valid `Unicode` `code points`.
+
+From character to `UTF-8` binaries:
+
+```bash
+>>> "p".encode().hex(":")
+'70'
+>>> "π".encode().hex(":")
+'cf:80'
+```
+
+Why "p" `Unicode` `code point` (`0x70`) is the same as `UTF-8` binaries (`70`)
+when "π" `Unicode` `code point` (`0x3C0`) is not the same as `UTF-8` binaries
+(`cf:80`)?
+
+`Unicode` `code points` "p" (`U+0070`) and "π" (`U+03C0`) come from different
+ranges, according to `Unicode` -> `UTF-8` convertion method.
+
+```bash
+>>> bin(ord("p"))
+'0b1110000'
+>>> bin(ord("π"))
+'0b1111000000'
+```
+
+"p" is represented by `1110000` (yyyzzzz)
+
+`UTF-8` binaries for this range: 0yyyzzzz
+
+```bash
+>>> bytes([0b1110000]).decode()
+'p'
+```
+
+"π" is represented by `011 11000000` (xxx yyyyzzzz)
+
+`UTF-8` binaries for this range: 110xxxyy 10yyzzzz
+
+```bash
+>>> bytes([0b11001111, 0b10000000]).decode()
+'π'
+```
+
+String could be created by composition of `UTF-8` binaries and `Unicode`
+`code point`:
+
+```bash
+>>> bytes([0x70, 0x69, 0x3A, 0x20]).decode() + "\u03c0"
+'pi: π'
+```
+
+More:
+
+- https://docs.python.org/3/howto/unicode.html#unicode-howto
+- https://en.wikipedia.org/wiki/UTF-8#Description
+
 # SQL
 
 Using `SQLAlchemy`.
