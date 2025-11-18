@@ -6,17 +6,19 @@ Package - a Python module which can contain submodules or recursively,
 subpackages.
 
 More:
+
 - https://docs.python.org/3/tutorial/modules.html#packages
-- 
-- 
+-
+-
 
 ## Modules
 
 Module - an object that serves as an organizational unit of Python code. Modules
 have a namespace containing arbitrary Python objects. Modules are loaded into
-Python by the process of *importing*.
+Python by the process of _importing_.
 
 More:
+
 - https://docs.python.org/3/tutorial/modules.html
 - https://docs.python.org/3/reference/datamodel.html#modules
 - https://docs.python.org/3/reference/import.html
@@ -24,6 +26,7 @@ More:
 ### `__main__`
 
 More:
+
 - https://docs.python.org/3/reference/import.html#special-considerations-for-main
 - https://docs.python.org/3/reference/datamodel.html#module.__name__
 - https://docs.python.org/3/tutorial/modules.html#executing-modules-as-scripts
@@ -72,12 +75,14 @@ if __name__ == '__main__':
 ### `super()`
 
 More:
+
 - https://docs.python.org/3/library/functions.html#super
 - https://docs.python.org/3/reference/datamodel.html#object.__init__
 
 ### Special attributes (`__dict__`, `__module__`, etc.)
 
 More:
+
 - https://docs.python.org/3/library/stdtypes.html#special-attributes
 - https://docs.python.org/3/reference/datamodel.html#special-writable-attributes
 - https://docs.python.org/3/reference/datamodel.html#instance-methods
@@ -86,27 +91,32 @@ More:
 ### Special methods a.k.a magic methods (`__init__`, `__str__`, etc.)
 
 More:
+
 - https://docs.python.org/3/reference/datamodel.html#special-methods
 
 ## Functions
 
 More:
+
 - https://docs.python.org/3/reference/compound_stmts.html#function-definitions
 - https://docs.python.org/3/tutorial/controlflow.html#defining-functions
 
 ### Positional and keyword arguments
 
 More:
+
 - https://docs.python.org/3/tutorial/controlflow.html#recap
 
 ### Anonymous functions a.k.a `lambda`
 
 More:
+
 - https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions
 
 ## Scopes
 
 More:
+
 - https://docs.python.org/3/reference/executionmodel.html#resolution-of-names
 - https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces
 
@@ -145,6 +155,7 @@ $ python namespace_package
 > If `<script>` is regular package, `__init__.py` is not executed.
 
 More:
+
 - https://docs.python.org/3/library/sys_path_init.html
 - https://docs.python.org/3/library/sys.html#sys.path
 
@@ -172,8 +183,8 @@ Dog.speak(dog)  # Call dog.speak() is exactly equivalent to Dog.speak(dog).
 Cat.speak(dog)  # It works as well, but dog says mhoew.
 ```
 
-
 More:
+
 - https://docs.python.org/3/tutorial/classes.html#method-objects
 
 # Software packaging
@@ -183,12 +194,14 @@ Packages are the idiomatic way to package software in `Python`.
 # Interactive shell
 
 More:
+
 - https://docs.python.org/3.13/tutorial/interpreter.html#using-the-python-interpreter
 - https://docs.python.org/3/using/cmdline.html#command-line-and-environment
 
 # Style guide
 
 More:
+
 - https://peps.python.org/pep-0008/
 
 ## Google
@@ -199,6 +212,7 @@ easier to understand a large codebase when all the code in it is in a consistent
 style.
 
 More:
+
 - https://google.github.io/styleguide/pyguide.html
 
 # Typespecs
@@ -206,11 +220,12 @@ More:
 # Docs
 
 Write `docstrings` for all public modules, functions, classes, and methods.
-`Docstrings` are not necessary for non-public methods, but you should have
-a comment that describes what the method does. This comment should appear after
+`Docstrings` are not necessary for non-public methods, but you should have a
+comment that describes what the method does. This comment should appear after
 the `def` line.
 
 More:
+
 - https://peps.python.org/pep-0257/
 - https://realpython.com/how-to-write-docstrings-in-python/
 - https://google.github.io/styleguide/pyguide.html#381-docstrings
@@ -221,21 +236,23 @@ More:
 
 # Testing
 
-
 # Truthy and falsy values
 
 More:
+
 - https://docs.python.org/3/library/stdtypes.html#truth-value-testing
 
 # Data persistance
 
 More:
+
 - https://docs.python.org/3/library/shelve.html
 - https://docs.python.org/3/library/pickle.html
 
 # Exceptions
 
 More:
+
 - https://docs.python.org/3/tutorial/errors.html
 - https://docs.python.org/3/library/exceptions.html
 - https://docs.python.org/3/reference/executionmodel.html#exceptions
@@ -277,16 +294,19 @@ if __name__ == '__main__':
 ```
 
 More:
+
 - https://docs.python.org/3/tutorial/classes.html#iterators
 
 # Generators
 
 More:
+
 - https://docs.python.org/3/tutorial/classes.html#generators
 
 # Comprehensions
 
 More:
+
 - https://docs.python.org/3/reference/expressions.html#displays-for-lists-sets-and-dictionaries
 - https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
 
@@ -295,6 +315,7 @@ More:
 > It is important to use encoding with text files.
 
 More:
+
 - https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 
 # SQL
@@ -365,10 +386,11 @@ with engine.connect() as conn:
 
 ## `dir` helper
 
-Without arguments, return the list of names in the current local scope. With
-an argument, attempt to return a list of valid attributes for that object.
+Without arguments, return the list of names in the current local scope. With an
+argument, attempt to return a list of valid attributes for that object.
 
 More:
+
 - https://docs.python.org/3/tutorial/modules.html#the-dir-function
 - https://docs.python.org/3/library/functions.html#dir
 
@@ -377,6 +399,7 @@ More:
 Invoke the built-in help system.
 
 More:
+
 - https://docs.python.org/3/library/functions.html#help
 
 ## `type` helper
@@ -385,24 +408,28 @@ With one argument, return the type of an object. The return value is a type
 object and generally the same object as returned by `object.__class__`.
 
 More:
+
 - https://docs.python.org/3/library/functions.html#type
 
 ## `id` helper
 
-Return the “identity” of an object. This is an integer which is guaranteed to
-be unique and constant for this object during its lifetime.
+Return the “identity” of an object. This is an integer which is guaranteed to be
+unique and constant for this object during its lifetime.
 
 More:
+
 - https://docs.python.org/3/library/functions.html#id
 
 ## Shortcut operators / augmented assignment statements (e.g. `+=`)
 
 More:
+
 - https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements
 
 ## `break` and `continue` statements
 
 More:
+
 - https://docs.python.org/3.13/tutorial/controlflow.html#break-and-continue-statements
 - https://docs.python.org/3.13/reference/simple_stmts.html#the-break-statement
 - https://docs.python.org/3.13/reference/simple_stmts.html#the-continue-statement
@@ -410,11 +437,13 @@ More:
 ## `else` clauses on loops
 
 More:
+
 - https://docs.python.org/3.13/tutorial/controlflow.html#else-clauses-on-loops
 
 ## Boolean (`and, or, not`) vs bitwise operations (`&, |, ^`)
 
 More:
+
 - https://docs.python.org/3/library/stdtypes.html#boolean-type-bool
 - https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not
 - https://docs.python.org/3/reference/expressions.html#boolean-operations
@@ -424,6 +453,7 @@ More:
 ## Swapping values / multiply assignment (`x, y = y, x`)
 
 More:
+
 - https://docs.python.org/3/reference/simple_stmts.html#assignment-statements
 - https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming
 
@@ -432,10 +462,10 @@ More:
 > `help()` only shows names without leading underscores.
 
 More:
+
 - https://docs.python.org/3/tutorial/classes.html#private-variables
 - https://docs.python.org/3/reference/lexical_analysis.html#reserved-classes-of-identifiers
 - https://docs.python.org/3/reference/expressions.html#index-5
-
 
 ## `__dict__` vs `dir()`
 
@@ -444,6 +474,7 @@ More:
 `dir()` - directory
 
 More:
+
 - https://docs.python.org/3/reference/datamodel.html#object.__dict__
 - https://docs.python.org/3/library/functions.html#dir
 
