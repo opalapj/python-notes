@@ -232,6 +232,18 @@ More:
 
 # Debugging
 
+The typical usage to break into the debugger is to insert `breakpoint()` at the
+location you want to break into the debugger, and then run the program.
+
+You can also invoke `pdb` from the command line to debug other scripts. For
+example `python -m pdb pyfile`. When invoked as a module, `pdb` will
+automatically enter post-mortem debugging if the program being debugged exits
+abnormally.
+
+More:
+
+- https://docs.python.org/3/library/pdb.html
+
 # Logging
 
 # Testing
