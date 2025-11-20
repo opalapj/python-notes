@@ -246,6 +246,269 @@ More:
 
 # Logging
 
+## When to use logging
+
+More:
+
+- https://docs.python.org/3/howto/logging.html#when-to-use-logging
+
+## Logging levels
+
+When a logger (or even handler) is created, the level is set to `NOTSET`. Note
+that the root logger is created with level `WARNING`.
+
+More:
+
+- https://docs.python.org/3/library/logging.html#logging-levels
+
+## Logger name
+
+```python
+import logging
+logger = logging.getLogger(__name__)
+```
+
+More:
+
+- https://docs.python.org/3/library/logging.html#logger-objects
+
+## What happens if no configuration is provided
+
+"No configuration is provided" means no handlers can be found to output the
+event.
+
+More:
+
+- https://docs.python.org/3/howto/logging.html#what-happens-if-no-configuration-is-provided
+
+## Basic configuration
+
+```python
+import logging
+logging.basicConfig()
+```
+
+More:
+
+- https://docs.python.org/3/library/logging.html#logging.basicConfig
+
+## Configuring logging for a library
+
+```python
+import logging
+logging.getLogger(__name__).addHandler(logging.NullHandler())
+```
+
+More:
+
+- https://docs.python.org/3/howto/logging.html#configuring-logging-for-a-library
+
+## Attaching handlers
+
+A common scenario is to attach handlers only to the root logger, and to let
+propagation take care of the rest.
+
+```toml
+version = 1
+
+[root]
+handlers = ["console"]
+
+[handlers.console]
+class = "logging.StreamHandler"
+```
+
+```yaml
+version: 1
+root:
+  handlers:
+    - console
+handlers:
+  console:
+    class: logging.StreamHandler
+```
+
+More:
+
+- https://docs.python.org/3/library/logging.html#logging.Logger.propagate
+
+## Configuration dictionary schema
+
+More:
+
+- https://docs.python.org/3/library/logging.config.html#configuration-dictionary-schema
+
+## About different types of configuration
+
+### No configuration
+
+As mentioned above - "no configuration is provided" means no handlers can be
+found to output the event. Such a logger emits all logs using 'handler of last
+resort'.
+
+The same result using config dicts:
+
+```toml
+version = 1
+disable_existing_loggers = false
+```
+
+```yaml
+version: 1
+disable_existing_loggers: false
+```
+
+### Basic configuration
+
+Does basic configuration for the logging system by creating a `StreamHandler`
+with a default `Formatter` and adding it to the `root` logger.
+
+```python
+import logging
+logging.basicConfig()
+```
+
+The same result using config dicts:
+
+```toml
+version = 1
+disable_existing_loggers = false
+
+[root]
+handlers = ["default"]
+
+[handlers.default]
+class = "logging.StreamHandler"
+formatter = "default"
+
+[formatters.default]
+format = "%(levelname)s:%(name)s:%(message)s"
+```
+
+```yaml
+version: 1
+disable_existing_loggers: false
+root:
+  handlers:
+    - default
+handlers:
+  default:
+    class: logging.StreamHandler
+    formatter: default
+formatters:
+  default:
+    format: "%(levelname)s:%(name)s:%(message)s"
+```
+
+### Custom dictionary configuration
+
+> Applying `dictConfig` to configure logging will overwrite the existing logger
+> configuration even if just name is invoked, including the `NullHandler` that
+> was added previously. `NullHandler` is removed from handlers.
+
+The dictionary passed to `dictConfig()` must contain only `version` key.
+
+All other keys are optional. However, it is worth mentioning that in order for
+the logging to work without changes, it is worth adding the key
+`disable_existing_loggers = false`. Especially in the context of loggers that do
+not have any handlers added (even `NullHandler`). In their case, without any
+configuration, at least the 'handler of last resort' would work.
+
+```toml
+# Minimum working configuration.
+version = 1
+disable_existing_loggers = false
+```
+
+However, `disable_existing_loggers` key with its default value `true` seems to
+be very helpful, especially when using multiple packages that are not configured
+according to best practices, i.e., they do not have a `NullHandler` added and
+emit all logs using 'handler of last resort'.
+
+## Discovering logging
+
+Steps:
+
+- no configuration
+
+  If any logs appear, they come from unconfigured loggers, i.e. loggers without
+  any handlers (even `NullHandler`) for which the 'handler of last resort'
+  works. Level: `WARNING`.
+
+- basic configuration
+
+  ```python
+  logging.basicConfig()
+  ```
+
+  or
+
+  ```yaml
+  version: 1
+  disable_existing_loggers: false
+  root:
+    handlers:
+      - default
+  handlers:
+    default:
+      class: logging.StreamHandler
+      formatter: default
+  formatters:
+    default:
+      format: "%(levelname)s:%(name)s:%(message)s"
+  ```
+
+  All possible logs appear. Level: `WARNING`.
+
+- basic configuration with NOTSET level
+
+  ```python
+  logging.basicConfig(level=logging.NOTSET)
+  ```
+
+  or
+
+  ```yaml
+  version: 1
+  disable_existing_loggers: false
+  root:
+    handlers:
+      - default
+    level: NOTSET
+  handlers:
+    default:
+      class: logging.StreamHandler
+      formatter: default
+  formatters:
+    default:
+      format: "%(levelname)s:%(name)s:%(message)s"
+  ```
+
+  All possible logs appear. Level: `NOTSET`.
+
+- basic configuration with NOTSET level and active logger only for specific
+  package
+
+  ```yaml
+  version: 1
+  #disable_existing_loggers: false
+  root:
+    handlers:
+      - default
+    level: NOTSET
+  loggers:
+    firstpackage: {}
+  handlers:
+    default:
+      class: logging.StreamHandler
+      formatter: default
+  formatters:
+    default:
+      format: "%(levelname)s:%(name)s:%(message)s"
+  ```
+
+  All possible logs appear only for specific package. Level: `NOTSET`.
+
 # Testing
 
 # Truthy and falsy values
